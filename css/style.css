@@ -44,6 +44,30 @@ src: local(''),
         url('../fonts/raleway-v19-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* Sommaire :
+
+        -styles généraux
+        -layout
+        -navigation
+        -composant boutons
+        -composant article
+        -composant étudiants
+        -composant pagination
+        -header
+
+        Dans l'ordre des pages html :
+
+        -actualités
+        -article
+        -contact
+        -etudiant-deux
+        -etudiant
+        -formation
+        -index
+        -module
+        -politique
+*/
+
 /* Styles généraux */
 :root {
         --primary: #FD7E37;
@@ -123,7 +147,6 @@ h1, h2{
 	.toggle-main-header-list {
 		display: none;
 	}
-
 	.main-header-list {
 		display: flex;
 		position: static;
@@ -135,7 +158,7 @@ h1, h2{
         }
 }
 
-/* Components */
+/* Composant Bouton */
 
 .contact-btn{
         display: flex;
@@ -151,25 +174,12 @@ h1, h2{
         margin-left: 1rem;
 }
 
+/* Composant Article */
+
 .article{
         margin: auto;
-        box-shadow: 0px 0px 48px #00000033;
         margin-bottom: 3rem;
-        border: 2px solid #e8e8e8;
-        border-radius: 3px;
-}
-.article:hover, .article:focus{
-        border: 2px solid var(--primary);
-        border-radius: 3px;
-}
-.article-img img{
-        min-width: 100%;
-        max-width: 100%;
-}
-@media screen and (min-width: 48em){
-        .article{
-                margin-right: 1.6rem;
-        }
+
 }
 .article h3{
         font-family: Raleway, "sans-serif";
@@ -183,36 +193,71 @@ h1, h2{
         padding-bottom: 1rem;
         font-weight: 600;
 }
+.article-img img{
+        min-width: 100%;
+        max-width: 100%;
+}
 .article-btn img{
         margin-left: 1.5rem ;
 }
-.article-link div p {
+.article-date, .article-art-date{
+        display: flex;
+        align-items: center;
+        color: var(--medium-marron)
+}
+.article-date img{
+        padding-right: 0.8rem;
+}
+.article .forfocus div p {
         font-size: 1.4rem;
 }
+.article .forfocus div{
+        padding: 2.4rem 1.6rem 2.4rem 1.6rem;
+}
+.article .forfocus{
+        border: 3px solid #f2f2f2a1;
+        border-radius: 5px;
+}
+.article-link:hover > .forfocus, .article-link:focus > .forfocus{
+        border:3px solid var(--primary);
+}
 
+@media screen and (min-width: 48em){
+        .article{
+                margin-right: 1.6rem;
+        }
+}
+@media screen and (min-width: 80em) {
+        .article h3{
+                font-size: 2.4rem;
+        }
+        .article .forfocus div p {
+                font-size: 2rem;
+        }
+        .article-btn{
+                font-size: 2.4rem;
+        }
+}
+
+/* Composant Etudiants */
 
 .students-item{
-
         max-width: max-content;
-        border: 2px solid var(--primary);
-        border-radius: 5px;
-
 }
-.students-link > div, .students-link > div{
+
+.students-link{
+        text-align: center;
+}
+.students-link .forfocus{
         padding: 1rem;
         border:2px solid var(--primary);
         border-radius: 5px;
-}
-.students-link:hover > div, .students-link:focus > div{
-        border:2px solid white;
-}
-.students-link{
-        text-align: center;
 }
 .students-link figcaption{
         margin-top: 1rem;
         margin-bottom: 1rem;
         font-weight: 600;
+        font-size: 1.4rem;
 }
 .students-link p{
         font-size: 1.4rem;
@@ -223,20 +268,30 @@ h1, h2{
         border-radius: 50%;
 }
 
-.article div{
-        padding-left: 1.6rem;
-        padding-right: 1.6rem;
-        padding-top: 2.4rem;
-        padding-bottom: 2.4rem;
+.etudiants .students-link > .forfocus{
+        border: 2px solid white;
 }
-.article-date, .article-art-date{
-        display: flex;
-        align-items: center;
-        color: var(--medium-marron)
+
+.students-link:hover > .forfocus, .students-link:focus > .forfocus{
+        border:2px solid white;
 }
-.article-date img{
-        padding-right: 0.8rem;
+
+.etudiants .students-link:hover > .forfocus, .etudiants .students-link:focus > .forfocus{
+        border:2px solid var(--primary);
 }
+@media screen and (min-width: 36em) {
+        .students-link figcaption{
+                font-size: 2rem;
+        }
+}
+
+@media screen and (min-width: 80em) {
+        .students-link figcaption{
+                font-size: 2.4rem;
+        }
+}
+
+/* Composant Pagination */
 
 .pagination{
         max-width: 23rem ;
@@ -245,7 +300,6 @@ h1, h2{
         justify-content: space-between;
         margin-top: 4rem;
 }
-
 .pagination-btn{
         color: var(--primary);
         background-color: white;
@@ -255,32 +309,10 @@ h1, h2{
         height: 3rem;
         transition: .3s;
 }
-.pagination-btn:hover{
+.pagination-btn:hover, .pagination-btn:focus{
         color: white;
         background-color: var(--primary);
         cursor: pointer;
-}
-
-
-@media screen and (min-width: 36em) {
-
-        .students-link figcaption{
-                font-size: 2rem;
-        }
-}
-@media screen and (min-width: 80em) {
-        .article h3{
-                font-size: 2.4rem;
-        }
-        .article-link div p {
-                font-size: 2rem;
-        }
-        .article-btn{
-                font-size: 2.4rem;
-        }
-        .students-link figcaption{
-                font-size: 2.4rem;
-        }
 }
 
 /* Header */
@@ -292,13 +324,6 @@ h1, h2{
         width: 100%;
         color: white;
 }
-
-@media screen and (min-width: 48em) {
-        .main-header{
-                position: initial;
-        }
-}
-
 .main-header .container{
         display: flex;
         justify-content: space-between;
@@ -314,13 +339,19 @@ h1, h2{
         font-weight: 500;
         display: block;
         font-size: 1rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding: 1rem 2rem 1rem 2rem;
         transition: .3s;
 }
+.main-header-link:hover, .main-header-link:focus{
+        background-color: white;
+        color: var(--primary);
+}
 
+@media screen and (min-width: 48em) {
+        .main-header{
+                position: initial;
+        }
+}
 @media screen and (min-width: 62em) {
         .main-header-logo{
                 font-size: 4.8rem;
@@ -329,13 +360,231 @@ h1, h2{
                 font-size: 1.5rem;
         }
 }
-.main-header-link:hover, .main-header-link:focus{
-        background-color: white;
+
+/* Actualités */
+
+.actu .container{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+}
+.actu .article{
+        max-width: 38rem;
+}
+.actu .article-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+
+@media screen and (min-width: 62em){
+        .actu h1{
+                font-size: 4.8rem;
+        }
+}
+
+/* Article */
+
+.article-art{
+        max-width: 84rem;
+        margin: auto;
+        text-align: justify;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+
+}
+.article-art-img img{
+        min-width: 100%;
+        max-width: 100%;
+}
+.article-art .article-date{
+        width: max-content;
+        margin: auto;
+        margin-bottom: 1rem;
+        box-shadow: none;
+}
+.article-art-date{
+        width: max-content;
+        margin: auto;
+        padding-bottom: 1rem;
+}
+
+/* Contact */
+
+@media screen and (min-width: 62em){
+        .contact h1{
+                margin-bottom: 14rem;
+        }
+}
+
+.contact .container{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+}
+
+.contact-form{
+        max-width: 105rem;
+        font-size: 2rem;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+}
+.contact-form label{
+        padding-bottom: 1rem;
+        display: block;
+}
+.contact-form .msg textarea{
+        resize: none;
+        height: 15rem;
+}
+.contact-form input, .contact-form textarea{
+        font-size: 2rem;
+        padding-bottom: 1rem;
+        border: none;
+        border-bottom: 1px solid var(--dark-grey);
+        width: 100%;
+}
+.contact-form .name{
+        margin-right: 3.2rem;
+        margin-bottom: 4rem;
+}
+.contact-form .name{
+        grid-column: -1 / 1;
+}
+.contact-form .mail{
+        grid-column: -1 / 1;
+        margin-bottom: 4rem;
+}
+.contact-form .msg{
+        grid-column: span 2;
+}
+.contact-form .btn{
+        margin-top: 1rem;
+        grid-column: 2;
+        display: flex;
+        justify-content: flex-end;
+}
+.contact-btn{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: max-content;
+        transition: .3s;
+
+}
+.contact-btn:hover, .contact-btn:focus{
+       transform: scale(1.1);
+}
+@media screen and (min-width: 48em){
+        .contact-form .name{
+                grid-column: 1;
+        }
+
+        .contact-form .mail{
+                grid-column: 2;
+        }
+        .contact-btn{
+                font-size: 2.4rem;
+        }
+
+}
+
+/* Etudiants Deux */
+
+.student .container{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+}
+.student-figure{
+        display: flex;
+        justify-content: center;
+}
+.student-figure-img{
+        border-radius: 50%;
+}
+.preferences-list{
+        display: grid;
+        margin: auto;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+        font-size: 1rem;
+}
+.preferences-item h2{
+        font-family: Raleway, "sans-serif";
+        padding-bottom: 0.5rem;
+        text-align: left;
+}
+.preferences-item p{
+        font-size: 1.2rem;
+}
+.preferences-item{
+        padding-bottom: 4rem;
+}
+.preferences-item.dm{
+        grid-column:  -1 / 1;
+        padding-bottom: 0;
+
+}
+
+@media screen and (min-width: 36em){
+        .preferences-list{
+                font-size: 1.6rem;
+        }
+        .preferences-item p, .preferences-item h2{
+                text-align: center;
+        }
+}
+@media screen and (min-width: 62em){
+        .preferences-list{
+                grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+        }
+        .preferences-item h2{
+                font-size: 2.4rem;
+        }
+        .preferences-item p, .preferences-item h2{
+                text-align: left;
+        }
+}
+
+/* Etudiants */
+
+.etudiants .container{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+}
+.etudiants .students-link p{
         color: var(--primary);
 }
 
+/* Formation */
 
-/* Accueil */
+.formation .container{
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+}
+.description{
+        font-size: 1.4rem;
+        font-weight: 600;
+        max-width: 84rem;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 4rem;
+}
+
+@media screen and (min-width: 62em){
+        .description{
+                font-size: 2.4rem;
+        }
+        .formation h1{
+                font-size: 4.8rem;
+        }
+
+}
+@media screen and (min-width: 48em){
+        .formation .article-list{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(50%, 1fr))
+        }
+}
+
+/* Index */
 
 .hero{
         background-image: url(../img/arrière-plan.jpg);
@@ -402,13 +651,9 @@ h1, h2{
                 max-width: 75rem;
         }
         .hero-content a{
-                padding-left: 3rem;
-                padding-right: 3rem;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
+                padding: 2rem 3rem 2rem 3rem;
         }
 }
-
 
 .accueil-students{
         padding-top: 4rem;
@@ -425,6 +670,7 @@ h1, h2{
 .students-item{
         margin: 1rem;
 }
+
 @media screen and (min-width: 48em){
         .students-list{
                 grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
@@ -447,102 +693,30 @@ h1, h2{
         }
 }
 
+/* Module */
 
-/* Formations */
-.formation .container{
+.module .container{
+        max-width: 84rem;
+}
+.module h1{
+        background-image: url(../img/code-rose@2x.jpg);
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding-top: 17rem;
+        padding-bottom: 17rem;
+}
+
+.module .container p {
+        text-align: justify;
         padding-top: 4rem;
         padding-bottom: 4rem;
-}
-
-.description{
-        font-size: 1.4rem;
         font-weight: 600;
-        max-width: 84rem;
-        margin: auto;
-        text-align: center;
-        margin-bottom: 4rem;
 }
-
 @media screen and (min-width: 62em){
-        .description{
+        .module .container p {
                 font-size: 2.4rem;
         }
-        .formation h1{
-                font-size: 4.8rem;
-        }
-
-}
-@media screen and (min-width: 48em){
-        .formation .article-list{
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(50%, 1fr))
-        }
-}
-
-/* Etudiants */
-
-.students .container{
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-}
-
-.students .students-link p{
-        color: var(--primary);
-}
-.students .students-item{
-        padding:1rem;
-        max-width: max-content;
-        border: 2px solid white;
-        border-radius: 5px;
-}
-.students .students-item:hover, .students-item:focus{
-        border:2px solid var(--primary);
-}
-
-/* Actualités */
-.actu .container{
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-}
-
-@media screen and (min-width: 62em){
-        .actu h1{
-                font-size: 4.8rem;
-        }
-}
-.actu .article{
-        max-width: 38rem;
-}
-.actu .article-list{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-}
-
-/* Article */
-
-.article-art{
-        max-width: 84rem;
-        margin: auto;
-        text-align: justify;
-        padding-bottom: 4rem;
-        padding-top: 4rem;
-
-}
-.article-art-img img{
-        min-width: 100%;
-        max-width: 100%;
-}
-.article-art .article-date{
-        width: max-content;
-        margin: auto;
-        margin-bottom: 1rem;
-        box-shadow: none;
-}
-.article-art-date{
-        width: max-content;
-        margin: auto;
-        padding-bottom: 1rem;
 }
 
 /* Politique */
@@ -566,166 +740,6 @@ h1, h2{
         }
 }
 
-/* Module */
-
-.module .container{
-        max-width: 84rem;
-}
-.module h1{
-        background-image: url(../img/code-rose.jpg);
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding-top: 17rem;
-        padding-bottom: 17rem;
-}
-
-.module .container p {
-        text-align: justify;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-        font-weight: 600;
-}
-@media screen and (min-width: 62em){
-        .module .container p {
-                font-size: 2.4rem;
-        }
-}
-
-/* Contact */
-@media screen and (min-width: 62em){
-        .contact h1{
-                margin-bottom: 14rem;
-        }
-}
-
-.contact .container{
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-}
-
-.contact-form{
-        max-width: 105rem;
-        font-size: 2rem;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-}
-.contact-form label{
-        padding-bottom: 1rem;
-        display: block;
-}
-.contact-form .msg textarea{
-        resize: none;
-        height: 15rem;
-}
-.contact-form input, .contact-form textarea{
-        font-size: 2rem;
-        padding-bottom: 1rem;
-        border: none;
-        border-bottom: 1px solid var(--dark-grey);
-        width: 100%;
-}
-.contact-form .name{
-        margin-right: 3.2rem;
-        margin-bottom: 4rem;
-}
-.contact-form .name{
-        grid-column: -1 / 1;
-}
-.contact-form .mail{
-        grid-column: -1 / 1;
-        margin-bottom: 4rem;
-}
-.contact-form .msg{
-        grid-column: span 2;
-}
-.btn{
-        margin-top: 1rem;
-        grid-column: 2;
-        display: flex;
-        justify-content: flex-end;
-}
-.contact-btn{
-        padding-left: 2rem;
-        padding-right: 2rem;
-        width: max-content;
-}
-@media screen and (min-width: 48em){
-        .contact-form .name{
-                grid-column: 1;
-        }
-
-        .contact-form .mail{
-                grid-column: 2;
-        }
-        .contact-btn{
-                font-size: 2.4rem;
-        }
-
-}
-
-/* Etudiants Deux */
-.student .container{
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-}
-.student-figure{
-        display: flex;
-        justify-content: center;
-}
-.student-figure-img{
-        border-radius: 50%;
-}
-.preferences-list{
-        display: grid;
-        margin: auto;
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-        font-size: 1rem;
-}
-.preferences-item h2{
-        font-family: Raleway, "sans-serif";
-        padding-bottom: 0.5rem;
-        text-align: left;
-}
-.preferences-item{
-        padding-bottom: 4rem;
-}
-.preferences-item.dm{
-        grid-column:  -1 / 1;
-        padding-bottom: 0;
-
-}
-
-
-
-@media screen and (min-width: 36em){
-        .preferences-list{
-                font-size: 1.6rem;
-        }
-        .preferences-item p, .preferences-item h2{
-                text-align: center;
-        }
-}
-
-@media screen and (min-width: 48em){
-
-}
-
-@media screen and (min-width: 62em){
-        .preferences-list{
-                grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-        }
-        .preferences-item h2{
-                font-size: 2.4rem;
-        }
-        .preferences-item p, .preferences-item h2{
-                text-align: left;
-        }
-}
-
-
-
 /* Footer */
 
 .main-footer{
@@ -745,17 +759,29 @@ h1, h2{
 .main-footer-contact{
         grid-column: -1 / 1;
 }
-
+.main-footer .container p:hover,
+.main-footer .container p:focus,
+.main-footer .container a:hover,
+.main-footer .container a:focus{
+        text-decoration: underline;
+}
 .main-footer-list{
         grid-column: -1 / 1;
         text-align: center;
 }
-
 .network-list{
         grid-column: -1 / 1;
         display: flex;
         align-items: center;
         justify-content: space-around;
+}
+.network-item a img{
+        transition: .2s;
+        padding: 1rem;
+        border: 2px solid var(--primary);
+}
+.network-item a:hover > img, .network-item a:focus >img{
+        border: 2px solid white;
 }
 
 @media screen and (min-width: 48em) {
