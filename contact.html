@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>DWWM - Contact</title>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a class="logo-link" href="index.html"><p class="main-header-logo">dwwm</p></a>
+            <nav class="main-header-nav">
+                <button class="toggle-main-header-list" aria-expanded="false" aria-controls="main-header-list"><img src="img/burger.svg" alt="icone menu"></button>
+                <ul id="main-header-list" class="main-header-list" hidden>
+                    <li class="main-header-item">
+                        <a class="main-header-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="main-header-item">
+                        <a class="main-header-link" href="formation.html">La formation</a>
+                    </li>
+                    <li class="main-header-item">
+                        <a class="main-header-link" href="etudiants.html">Les étudiants</a>
+                    </li>
+                    <li class="main-header-item">
+                        <a class="main-header-link" href="actualites.html">Actualités</a>
+                    </li>
+                    <li class="main-header-item">
+                        <a class="main-header-link" href="contact.html">Nous contacter</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact">
+        <div class="container">
+            <h1>Nous contacter</h1>
+            <form class="contact-form" action="" method="POST">
+                <div class="name">
+                    <label for="name">Votre nom</label>
+                    <input type="text" name="name" id="name" placeholder="Entrez votre nom">
+                </div>
+                <div class="mail">
+                    <label for="email">Votre e-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Entrez votre adresse e-mail">
+                </div>
+                <div class="msg">
+                    <label for="msg">Votre message</label>
+                    <textarea name="msg" id="msg"></textarea>
+                </div>
+                <div class="btn">
+                    <button class="contact-btn" type="submit">Envoyer<img src="img/fleche-droite.svg"></button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="main-footer-contact">
+                <p>Développeur Web et Web Mobile</p>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <a class="contact-link" href="https://g.page/cefimformation?share">
+                            <p>CEFIM</p>
+                            <p>32 Avenue Marcel Dassault</br>
+                               37200 Tours
+                            </p>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <a class="contact-link" href="tel:+33247402680">02 47 40 26 80</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="main-footer-list">
+                <li class="main-footer-item">
+                    <a class="main-footer-link" href="politique.html">Mentions légales</a>
+                </li>
+                <li class="main-footer-item">
+                    <a class="main-footer-link" href="politique.html">Politique de confidentialité</a>
+                </li>
+            </ul>
+            <ul class="network-list">
+                <li class="network-item">
+                    <a class="network-link" href="https://www.facebook.com/"><img src="img/icon-facebook.svg" alt="icône facebook"></a>
+                </li>
+                <li class="network-item">
+                    <a class="network-link" href="https://twitter.com/?lang=fr"><img src="img/incon-twitter.svg" alt="icône twitter"></a>
+                </li>
+                <li class="network-item">
+                    <a class="network-link" href="https://fr.linkedin.com/"><img src="img/icon-linkedin.svg" alt="icône linkedin"></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="js/nav.js"></script>
+</body>
+</html>
